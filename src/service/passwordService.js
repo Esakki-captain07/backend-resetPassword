@@ -18,9 +18,7 @@ const forgotPassword = async (req, res) => {
         user.otpExpiry = Date.now() + 600000
         await user.save()
 
-        const emailContent = `Here is your one-time password (OTP) for verification: ${otp}.
-        This code is valid for the next 10 Munites. Please use it to complete your request.
-         If you didn’t request this, please ignore this email.`
+        const emailContent = `Here is your one-time password (OTP) for verification: ${otp}. This code is valid for the next 10 Munites. Please use it to complete your request. If you didn’t request this, please ignore this email.`
         await sendOtpMail(email, emailContent)
 
         res.status(200).send({

@@ -6,9 +6,9 @@ const PORT = process.env.PORT
 const app = express()
 
 app.use(cors({
-    origin: 'http://http://localhost:5173/', // Replace with your frontend's local URL if it's different
-    methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type'],
+    origin: 'http://localhost:5173', // Correct origin for your local frontend
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
 }))
 app.use(express.json())
 app.use(routes)
